@@ -8,7 +8,7 @@
     <insert id="insert">
         INSERT INTO question(question_id, title, content, created_at, updated_at,
                             qna_category_id, member_id, item_group_id, hide, type)
-        values (#{questionId},#{title},#{content},#{createdAt},#{updatedAt},#{qnaCategoryId},
+        values (#{questionId},#{title},#{content},#{createdAt},#{updatedAt},#{qnaCategoryId},`
                 #{memberId},#{itemGroupId},#{hide},#{type})
     </insert>
 
