@@ -7,6 +7,7 @@ import com.triplan.service.inf.QuestionService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.util.List;
 
 @RestController
@@ -19,7 +20,7 @@ public class ApiQuestionController {
     /* CRUD 메서드 */
     //문의 사항 작성
     @PostMapping
-    public String register(@RequestBody QuestionVO questionVO) {
+    public String register(@Valid @RequestBody QuestionVO questionVO) {
         questionService.create(questionVO);
         System.out.println(" C : Create 실행");
         return "board/list";
@@ -78,7 +79,7 @@ public class ApiQuestionController {
     }
 
     @GetMapping
-    public Pagination<QuestionVO> questionListBySellerIdPage(
+    public Pagination<QuestionVO> questionListBySellerIdListPage(
             @RequestParam(defaultValue = "10") Integer pageSize,
             @RequestParam(defaultValue = "1") Integer currentPage)
     {
